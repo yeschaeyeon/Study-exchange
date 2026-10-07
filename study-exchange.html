@@ -278,6 +278,24 @@ nav.tabs .nbd{position:absolute;top:4px;left:calc(50% + 6px);min-width:16px;bord
 .ck span:last-child{font-size:12px;color:var(--mut)}
 .alert{background:var(--s2);border-left:3px solid var(--acc);border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
 nav.tabs div.in{grid-template-columns:repeat(6,1fr)}
+
+.mcn{display:flex;gap:6px;margin:6px 0}
+.mcb{margin:6px 0 10px}
+.mcal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.mh{text-align:center;font-size:12px;color:var(--mut);padding:2px 0}.mh.sun,.dn.sun{color:var(--up)}.mh.sat,.dn.sat{color:var(--dn)}
+.mc{display:flex;flex-direction:column;gap:3px;min-height:104px;background:var(--s1);border:1px solid var(--line);border-radius:10px;padding:5px 4px;text-align:left;overflow:hidden}
+.mc.emp{background:none;border:0}.mc.out{opacity:.35}
+.mc.today{border:2px solid var(--acc);padding:4px 3px}
+.mc.full{background:color-mix(in srgb,var(--ok) 14%,var(--s1))}
+.mc.late{border-color:color-mix(in srgb,var(--up) 55%,var(--line))}
+.mc .mt{display:flex;justify-content:space-between;align-items:baseline}
+.mc .dn{font-size:13px}.mc .mt i{font-style:normal;font-size:10px;color:var(--mut)}
+.mc .fl{font-size:9px;color:var(--acc-ink);background:var(--acc);border-radius:4px;padding:0 3px;align-self:flex-start}
+.mc .ms{display:flex;flex-direction:column;gap:1px}
+.mc .ms u{text-decoration:none;font-size:10px;line-height:1.25;color:var(--c);font-weight:600;white-space:nowrap}
+.mc .ms u.ok{opacity:.45;text-decoration:line-through}
+.mc .mp{height:3px;border-radius:2px;background:var(--s2);overflow:hidden;margin-top:auto}.mc .mp i{display:block;height:100%;background:var(--ok)}
+.mleg{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0;font-size:11px;color:var(--mut)}.mleg span{display:flex;align-items:center;gap:4px}.mleg i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 </style>
 </head>
 <body>
@@ -305,13 +323,13 @@ const RAW=`
 10/4|h 한국사 인강 2강|m 수직주 1회 9/11|m N티켓 1회 확통 2~4|m 수직주 1회 10/11|m N티켓 1회 확통 5~7|e 영단어 14~16일차|e 자이스토리 K2 p.200~203|e 자이스토리 M p.254~258|e 자이스토리 Q p.366~368|s 사문 수특 정독 1회|s 사문 수특 정독 2회(완)|l 생윤 수특 풀이 11~12차시|l 생윤 수특 풀이 13~14차시|k Epi 03. 모든 것은, 기본에서 시작된다.|k 수업 내용 복습|k 총정리 과제(3) Day1 [독서·문학 문제 풀이]|k EBS 현대시 복습: 낙원은 가시덤불에서·산에 대하여·참회록·녹을 닦으며-공초14|k 총정리 과제(3) Day1 [VIC Data 과학·기술/고전소설]|k 총정리 과제(3) Day2 [독서·문학 문제 풀이]|k EBS 고전시가 복습: 계녀가·규원가|k 고전소설의 빈출 화소 ① 군담: 정수정전|k 김승리의 선택 [화작] FINAL 제4회 실시|k 총정리 과제(3) Day2 [VIC Data 인문·예술/고전소설]|i 면접 준비|e 영단어 복습
 10/5|h 한국사 인강 3강|m 수직주 1회 11/11(완)|m N티켓 1회 확통 8~10|m N티켓 1회 확통 11(완)|e 영단어 17~19일차|e 자이스토리 K2 p.204~207|e 자이스토리 M p.259~262|e 자이스토리 P p.318~321|s 사문 십지선다 1차시|s 사문 십지선다 2차시|l 생윤 수특 풀이 15~16차시(완)|k 총정리 과제(3) Day3 [VIC Data 사회·문화/고전소설]|k EBS 현대시 복습: 멸치·버팀목에 대하여·강을 따라갔다 돌아왔다·모든 사라지는 것들은 뒤에 여백을 남긴다|k 고전소설의 빈출 화소 ② 애정: 윤지경전|k 총정리 과제(3) Day3 [독서·문학 문제 풀이]|k 실전 모의고사 실시|k EBS 고전시가 복습: 목동가·풍계육가|k 김승리의 선택 [화작] FINAL 제5회 실시|k 총정리 과제(3) Day4 [독서·문학 문제 풀이]|k EBS 현대시 복습: 사과밭을 지나며·산이 날 에워싸고·흐름에 대하여|k 고전소설의 빈출 화소 ③ 모함·음해: 사씨남정기|k 총정리 과제(3) Day4 [VIC Data 인문·예술/고전소설]|e 영단어 복습
 10/6|h 한국사 인강 4강|m 수직주 2회 1/11|m N티켓 2회 수1 1~4|m 수직주 2회 2/11|m N티켓 2회 수1 5~8|e 영단어 20~22일차|e 자이스토리 K2 p.208~211|e 자이스토리 M p.263~266|e 자이스토리 P p.322~325|s 사문 십지선다 3차시|s 사문 십지선다 4~5차시|k 총정리 과제(3) Day5 [VIC Data 과학·기술/고전소설]|k EBS 고전시가 복습: 만흥·규수상사곡·임 그린 상사몽이~|k 고전소설의 빈출 화소 ④ 적강: 숙향전|k 김승리의 선택 [화작] FINAL 제6회 실시|k 총정리 과제(3) Day5 [독서·문학 문제 풀이]|k Epi 04. 축배가 아니라, 검을 들어라.|e 그불구 1강 · CH1. INTRODUCTION (1)|e 그불구 1강 과제|e 영단어 복습
-10/7|h 한국사 인강 5강|m 수직주 2회 3/11|m N티켓 2회 수1 9~12|m 수직주 2회 4/11|m N티켓 2회 수2 1~4|e 영단어 23~25일차|e 자이스토리 K2 p.212~213|e 자이스토리 M p.267~270|e 자이스토리 P p.326~331|s 사문 십지선다 6차시|s 사문 십지선다 7차시|l 생윤 현돌 다지선다 1회|e 그불구 2강 · CH1. INTRODUCTION (2)|e 그불구 2강 과제|e 영단어 복습
-10/8|h 한국사 인강 6강|m 수직주 2회 5/11|m N티켓 2회 수2 5~8|m 수직주 2회 6/11|m N티켓 2회 수2 9~11·확통 1|e 영단어 26~28일차|e 자이스토리 M p.271|e 자이스토리 P p.332~335|e 자이스토리 N p.274~280|s 사문 십지선다 8차시|s 사문 십지선다 9차시|l 생윤 현돌 다지선다 2회|e 그불구 3강 · CH1. INTRODUCTION (3) / CH2. 평가원 CODE 1 (1)|e 그불구 3강 과제|e 영단어 복습
-10/9|m 수직주 2회 7/11|m N티켓 2회 확통 2~5|m 수직주 2회 8/11|m N티켓 2회 확통 6~9|e 영단어 29~31일차|e 자이스토리 P p.336~339|e 자이스토리 N p.281~284|e 자이스토리 K3 p.214~217|s 사문 십지선다 10차시|s 사문 십지선다 11차시|l 생윤 현돌 다지선다 3회(완)|e 그불구 4강 · CH2. 평가원 CODE 1 (2), 평가원 CODE 2 (1)|e 그불구 4강 과제|e 영단어 복습
-10/10|m 수직주 2회 9/11|m N티켓 2회 확통 10~11(완)|m 수직주 2회 10/11|e 실모 풀이 및 오답 1회|s 사문 십지선다 12~13차시|l 생윤 현돌 시즌1 1회|e 그불구 5강 · CH2. 평가원 CODE 2 (2)|e 그불구 5강 과제|i 면접 준비|e 영단어 복습
-10/11|m 실모 풀이 및 오답 1회|e 실모 풀이 및 오답 1회|s 사문 십지선다 14차시|l 생윤 현돌 시즌1 2회|e 그불구 6강 · CH2. 평가원 CODE 3 (1)|e 그불구 6강 과제|i 면접 준비|e 영단어 복습
-10/12|m 수직주 2회 11/11(완)|e 영단어 32~34일차|e 자이스토리 P p.340~343|e 자이스토리 N p.285~288|e 자이스토리 K3 p.218~221|s 사문 십지선다 15차시|l 생윤 현돌 시즌1 3회|e 그불구 7강 · CH2. 평가원 CODE 3 (2), 평가원 CODE 4 (1)|e 그불구 7강 과제|e 영단어 복습
-10/13|m 미친기분 수1 2회독|e 영단어 35~37일차|e 자이스토리 N p.289~292|e 자이스토리 K3 p.222~225|e 자이스토리 O p.300~303|s 사문 십지선다 16차시|l 생윤 현돌 시즌1 4회|e 그불구 8강 · CH2. 평가원 CODE 4 (2), 평가원 CODE 5 (1), 평가원 CODE 6 (1)|e 그불구 8강 과제|e 영단어 복습
+10/7|h 한국사 인강 5강|m 수직주 2회 3/11|m N티켓 2회 수1 9~12|m 수직주 2회 4/11|m N티켓 2회 수2 1~4|e 영단어 23~25일차|e 자이스토리 K2 p.212~213|e 자이스토리 M p.267~270|e 자이스토리 P p.326~331|s 사문 십지선다 6차시|s 사문 십지선다 7차시|l 생윤 현돌 다지선다 1회|e 그불구 2강 · CH1. INTRODUCTION (2)|e 그불구 2강 과제|e 영단어 복습|k@p9 수업 내용 복습|k@p10 총정리 과제(4) Day1 [독서·문학 문제 풀이]|k@p12 EBS 현대시 복습: 자화상·목계 장터·흰 바람벽이 있어·연탄 한 장|k@p13 총정리 과제(4) Day1 [VIC Data 사회·문화/고전소설]
+10/8|h 한국사 인강 6강|m 수직주 2회 5/11|m N티켓 2회 수2 5~8|m 수직주 2회 6/11|m N티켓 2회 수2 9~11·확통 1|e 영단어 26~28일차|e 자이스토리 M p.271|e 자이스토리 P p.332~335|e 자이스토리 N p.274~280|s 사문 십지선다 8차시|s 사문 십지선다 9차시|l 생윤 현돌 다지선다 2회|e 그불구 3강 · CH1. INTRODUCTION (3) / CH2. 평가원 CODE 1 (1)|e 그불구 3강 과제|e 영단어 복습|k@p0 총정리 과제(4) Day2 [독서·문학 문제 풀이]|k@p12 EBS 고전시가 복습: 부여노정기·상춘곡|k@p12 김승리의 선택 [화작] FINAL 제7회 실시|k@p13 총정리 과제(4) Day2 [VIC Data 인문·예술/고전소설]
+10/9|m 수직주 2회 7/11|m N티켓 2회 확통 2~5|m 수직주 2회 8/11|m N티켓 2회 확통 6~9|e 영단어 29~31일차|e 자이스토리 P p.336~339|e 자이스토리 N p.281~284|e 자이스토리 K3 p.214~217|s 사문 십지선다 10차시|s 사문 십지선다 11차시|l 생윤 현돌 다지선다 3회(완)|e 그불구 4강 · CH2. 평가원 CODE 1 (2), 평가원 CODE 2 (1)|e 그불구 4강 과제|e 영단어 복습|k@p0 총정리 과제(4) Day3 [VIC Data 과학·기술/고전소설]|k@p12 EBS 현대시 복습: 나비의 여행·새 1·눈·한계령을 위한 연가|k@p13 총정리 과제(4) Day3 [독서·문학 문제 풀이]
+10/10|m 수직주 2회 9/11|m N티켓 2회 확통 10~11(완)|m 수직주 2회 10/11|e 실모 풀이 및 오답 1회|s 사문 십지선다 12~13차시|l 생윤 현돌 시즌1 1회|e 그불구 5강 · CH2. 평가원 CODE 2 (2)|e 그불구 5강 과제|i 면접 준비|e 영단어 복습|k@p0 실전 모의고사 실시 (4일차)|k@p12 EBS 고전시가 복습: 만분가·황강구곡가|k@p12 김승리의 선택 [화작] FINAL 제8회 실시
+10/11|m 실모 풀이 및 오답 1회|e 실모 풀이 및 오답 1회|s 사문 십지선다 14차시|l 생윤 현돌 시즌1 2회|e 그불구 6강 · CH2. 평가원 CODE 3 (1)|e 그불구 6강 과제|i 면접 준비|e 영단어 복습|k@p0 총정리 과제(4) Day4 [독서·문학 문제 풀이]|k@p12 EBS 현대시 복습: 쉽게 씌어진 시·기항지 1·삼수갑산·이별가|k@p12 총정리 과제(4) Day4 [VIC Data 사회·문화/고전소설]
+10/12|m 수직주 2회 11/11(완)|e 영단어 32~34일차|e 자이스토리 P p.340~343|e 자이스토리 N p.285~288|e 자이스토리 K3 p.218~221|s 사문 십지선다 15차시|l 생윤 현돌 시즌1 3회|e 그불구 7강 · CH2. 평가원 CODE 3 (2), 평가원 CODE 4 (1)|e 그불구 7강 과제|e 영단어 복습|k@p0 총정리 과제(4) Day5 [VIC Data 인문·예술/고전소설]|k@p12 EBS 고전시가 복습: 상저가·베틀 노래·빈녀음·높으나 높은 나무에~·철령 높은 고개~·시절도 저러하니~·어전에 실언하고~|k@p12 김승리의 선택 [화작] FINAL 제9회 실시|k@p13 총정리 과제(4) Day5 [독서·문학 문제 풀이]
+10/13|m 미친기분 수1 2회독|e 영단어 35~37일차|e 자이스토리 N p.289~292|e 자이스토리 K3 p.222~225|e 자이스토리 O p.300~303|s 사문 십지선다 16차시|l 생윤 현돌 시즌1 4회|e 그불구 8강 · CH2. 평가원 CODE 4 (2), 평가원 CODE 5 (1), 평가원 CODE 6 (1)|e 그불구 8강 과제|e 영단어 복습|k@p0 Epi 05. 도망칠 자는, 지금 떠나라.|k@p0 Epi 06. 공포를 아는 자라야, 전장에 선다.
 10/14|m 미친기분 수2 2회독|e 영단어 38~40일차|e 자이스토리 N p.293~296|e 자이스토리 K3 p.226~229|e 자이스토리 O p.304~307|s 사문 십지선다 17차시(완)|l 생윤 현돌 시즌1 5회|e 그불구 9강 · CH2. 평가원 CODE 5 (2), 평가원 CODE 6 (2)|e 그불구 9강 과제|e 영단어 복습
 10/15|m 미친기분 확통 2회독|e 영단어 41~43일차|e 자이스토리 N p.297|e 자이스토리 O p.308~315|s 사문 시크릿 모고 1회|l 생윤 현돌 시즌1 6회|e 그불구 10강 · CH3. READ N' LOGIC - COMPLETE 1회|e 그불구 10강 과제|e 영단어 복습
 10/16|m N티켓 3회 수1 1~2|m N티켓 3회 수1 3~6|e 영단어 44~46일차|e 자이스토리 고독모 1회|s 사문 시크릿 모고 2회|l 생윤 현돌 시즌1 7회|e 그불구 11강 · CH3. READ N' LOGIC - COMPLETE 2회|e 그불구 11강 과제|e 영단어 복습
@@ -347,7 +365,7 @@ const RAW=`
 11/15|r 파이널 실모 7회(완)|e 실모 풀이 및 오답 1회|i 면접 준비|e 영단어 복습
 `;
 const RESERVE=['11/13','11/14','11/15'];
-const FLAG={'9/22':'시작','10/14':'1차 마감','11/15':'최종 완료일'};
+const FLAG={'9/22':'시작','10/7':'새 계획','10/14':'1차 마감','11/15':'최종 완료일'};
 const DOW=['일','월','화','수','목','금','토'];
 const CSAT=new Date(YEAR,10,19);
 
@@ -407,9 +425,9 @@ const dday=k=>Math.round((CSAT-parseKey(k))/864e5);
 
 const DAYS=RAW.trim().split('\n').map(line=>{
   const p=line.trim().split('|'); const key=p[0];
-  return {key,date:parseKey(key),tasks:p.slice(1).map((t,i)=>({id:key+'::'+t[0]+'::'+t.slice(2).trim(),orig:key,subj:t[0],text:t.slice(2).trim()}))};
+  return {key,date:parseKey(key),tasks:p.slice(1).map((t,i)=>{let sl=null,x=t.slice(2).trim(); if(t[1]==='@'){const mm=/^@(p\d+|wrap) (.*)$/.exec(t.slice(1)); if(mm){sl=mm[1]; x=mm[2].trim();}} return {id:key+'::'+t[0]+'::'+x,orig:key,subj:t[0],text:x,slot:sl};})};
 });
-const ALL=DAYS.flatMap(d=>d.tasks);
+let ALL=DAYS.flatMap(d=>d.tasks);
 const START=DAYS[0].date, END=DAYS[DAYS.length-1].date;
 const KEYSET=new Set(DAYS.map(d=>d.key));
 
@@ -439,13 +457,13 @@ const OLD_RAW=`
 10/4|s 사문 십지선다 6차시|l 생윤 수특 풀이 13차시|h 한국사 인강 2강|m 실모 풀이 및 오답 1회|e 실모 풀이 및 오답 1회
 10/5|m 수직주 2회 3/11|e 영단어 31~32일차|e 자이스토리 p.131~140|s 사문 십지선다 7차시|l 생윤 수특 풀이 14차시|h 한국사 인강 3강|e 영단어 복습
 10/6|m 수직주 2회 4/11|e 영단어 33~34일차|e 자이스토리 p.141~150|s 사문 십지선다 8차시|l 생윤 수특 풀이 15차시(완)|h 한국사 인강 4강|e 영단어 복습
-10/7|m 수직주 2회 5/11|e 영단어 35~36일차|e 자이스토리 p.151~160|s 사문 십지선다 9차시|l 생윤 현돌 다지선다 1회|h 한국사 인강 5강|e 영단어 복습
-10/8|m 수직주 2회 6/11|e 영단어 37~38일차|e 자이스토리 p.161~170|s 사문 십지선다 10차시|l 생윤 현돌 다지선다 2회|h 한국사 인강 6강|e 영단어 복습
-10/9|m 수직주 2회 7/11|e 영단어 39~40일차|e 자이스토리 p.171~180|s 사문 십지선다 11차시|l 생윤 현돌 다지선다 3회(완)|e 영단어 복습
-10/10|m 수직주 2회 8/11|e 영단어 41~42일차|e 자이스토리 p.181~190|s 사문 십지선다 12~13차시|l 생윤 현돌 시즌1 1회|e 영단어 복습
-10/11|s 사문 십지선다 14차시|l 생윤 현돌 시즌1 2회|m 실모 풀이 및 오답 1회|e 실모 풀이 및 오답 1회
-10/12|m 수직주 2회 10/11|e 영단어 45~46일차|e 자이스토리 p.201~210|s 사문 십지선다 15차시|l 생윤 현돌 시즌1 3회|e 영단어 복습
-10/13|m 수직주 2회 11/11(완)|e 영단어 47~48일차|e 자이스토리 p.211~213(완)|s 사문 십지선다 16차시|l 생윤 현돌 시즌1 4회|e 영단어 복습
+10/7|m 수직주 2회 5/11|e 영단어 35~36일차|e 자이스토리 p.151~160|s 사문 십지선다 9차시|l 생윤 현돌 다지선다 1회|h 한국사 인강 5강|e 영단어 복습|k@p9 수업 내용 복습|k@p10 총정리 과제(4) Day1 [독서·문학 문제 풀이]|k@p12 EBS 현대시 복습: 자화상·목계 장터·흰 바람벽이 있어·연탄 한 장|k@p13 총정리 과제(4) Day1 [VIC Data 사회·문화/고전소설]
+10/8|m 수직주 2회 6/11|e 영단어 37~38일차|e 자이스토리 p.161~170|s 사문 십지선다 10차시|l 생윤 현돌 다지선다 2회|h 한국사 인강 6강|e 영단어 복습|k@p0 총정리 과제(4) Day2 [독서·문학 문제 풀이]|k@p12 EBS 고전시가 복습: 부여노정기·상춘곡|k@p12 김승리의 선택 [화작] FINAL 제7회 실시|k@p13 총정리 과제(4) Day2 [VIC Data 인문·예술/고전소설]
+10/9|m 수직주 2회 7/11|e 영단어 39~40일차|e 자이스토리 p.171~180|s 사문 십지선다 11차시|l 생윤 현돌 다지선다 3회(완)|e 영단어 복습|k@p0 총정리 과제(4) Day3 [VIC Data 과학·기술/고전소설]|k@p12 EBS 현대시 복습: 나비의 여행·새 1·눈·한계령을 위한 연가|k@p13 총정리 과제(4) Day3 [독서·문학 문제 풀이]
+10/10|m 수직주 2회 8/11|e 영단어 41~42일차|e 자이스토리 p.181~190|s 사문 십지선다 12~13차시|l 생윤 현돌 시즌1 1회|e 영단어 복습|k@p0 실전 모의고사 실시 (4일차)|k@p12 EBS 고전시가 복습: 만분가·황강구곡가|k@p12 김승리의 선택 [화작] FINAL 제8회 실시
+10/11|s 사문 십지선다 14차시|l 생윤 현돌 시즌1 2회|m 실모 풀이 및 오답 1회|e 실모 풀이 및 오답 1회|k@p0 총정리 과제(4) Day4 [독서·문학 문제 풀이]|k@p12 EBS 현대시 복습: 쉽게 씌어진 시·기항지 1·삼수갑산·이별가|k@p12 총정리 과제(4) Day4 [VIC Data 사회·문화/고전소설]
+10/12|m 수직주 2회 10/11|e 영단어 45~46일차|e 자이스토리 p.201~210|s 사문 십지선다 15차시|l 생윤 현돌 시즌1 3회|e 영단어 복습|k@p0 총정리 과제(4) Day5 [VIC Data 인문·예술/고전소설]|k@p12 EBS 고전시가 복습: 상저가·베틀 노래·빈녀음·높으나 높은 나무에~·철령 높은 고개~·시절도 저러하니~·어전에 실언하고~|k@p12 김승리의 선택 [화작] FINAL 제9회 실시|k@p13 총정리 과제(4) Day5 [독서·문학 문제 풀이]
+10/13|m 수직주 2회 11/11(완)|e 영단어 47~48일차|e 자이스토리 p.211~213(완)|s 사문 십지선다 16차시|l 생윤 현돌 시즌1 4회|e 영단어 복습|k@p0 Epi 05. 도망칠 자는, 지금 떠나라.|k@p0 Epi 06. 공포를 아는 자라야, 전장에 선다.
 10/14|m N티켓 2회 수1 1~4|e 영단어 49~50일차(1회독 완)|e 그불구 1강|s 사문 십지선다 17차시(완)|l 생윤 현돌 시즌1 5회|e 영단어 복습
 10/15|m N티켓 2회 수1 5~8|e 그불구 2강|s 사문 시크릿 모고 1회|l 생윤 현돌 시즌1 6회|e 영단어 복습
 10/16|m N티켓 2회 수1 9~12|e 그불구 3강|s 사문 시크릿 모고 2회|l 생윤 현돌 시즌1 7회|e 영단어 복습
@@ -567,7 +585,7 @@ const syncRef=code=>fb.F.doc(fb.fdb,'sync',code);
 function applyCloud(d){
   const inc=(d&&typeof d._rev==='number')?d._rev:0;
   if(inc<(S._rev||0)) return false;
-  S=norm(migrateIds(Object.assign(freshS(),d))); MEMO=null;
+  S=norm(migrateIds(Object.assign(freshS(),d))); MEMO=null; try{applyHide();}catch(e){}
   try{localStorage.setItem(STORE,JSON.stringify(S));}catch(e){}
   return true;
 }
@@ -607,7 +625,7 @@ function syncOff(){
 }
 
 /* ============ 플래너 보조 함수 (원본) ============ */
-let tab='home', mSub='market', pSub='prog', rSub='duel', detail=null, range='1W', mf='all';
+let tab='home', mSub='market', pSub='month', mcMonth=null, rSub='duel', detail=null, range='1W', mf='all';
 let view=defaultView();
 let sf={subj:'r',label:'',score:'',err:''};
 let EFF={}, firstScroll=true;
@@ -622,9 +640,11 @@ function buildEff(){
   ALL.forEach(t=>{const k=effKey(t); if(k!==t.orig) m[k].push(t);});
   return m;
 }
-function autoSlots(tasks, dateKey){
+function autoSlots(tasks0, dateKey){
+  const fixedT=tasks0.filter(t=>t.slot), tasks=tasks0.filter(t=>!t.slot);
   if(CUSTOM_DAY[dateKey]) return CUSTOM_DAY[dateKey](tasks);
   const out={};
+  fixedT.forEach(t=>out[t.id]=t.slot);
   const kFirst = K_UNIT1_COUNT[dateKey]||0;
   const kAll   = tasks.filter(t=>t.subj==='k');
   const vocab  = tasks.filter(t=>t.subj==='e' && t.text.startsWith('영단어') && t.text!=='영단어 복습');
@@ -674,6 +694,7 @@ function autoSlots(tasks, dateKey){
     const pick=(good.length?good:pairs)[0]||['p12','p13'];
     gbg.forEach((t,i)=>out[t.id]=pick[Math.min(i,1)]);
   }
+  fixedT.forEach(t=>out[t.id]=t.slot);
   return out;
 }
 const slotOf=(t,auto)=>S.assign[t.id]||auto[t.id];
@@ -1272,9 +1293,36 @@ function vTitle(){
 /* ============ 플래너 (진도 · 계획표 · 밀림 · 실모 · 설정) ============ */
 function vPlanTab(){
   const n=overdueN();
-  const chips=subChips([['prog','진도'],['plan','계획표'],['late','밀림',n||''],['score','실모'],['set','설정']],pSub,'psub');
-  const body={prog:viewProg,plan:viewPlan,late:viewLate,score:viewScore,set:viewSet}[pSub]();
+  const chips=subChips([['month','월간표'],['prog','진도'],['plan','계획표'],['late','밀림',n||''],['score','실모'],['set','설정']],pSub,'psub');
+  const body={month:viewMonth,prog:viewProg,plan:viewPlan,late:viewLate,score:viewScore,set:viewSet}[pSub]();
   return hdr()+chips+body;
+}
+
+function viewMonth(){
+  const ms=[]; DAYS.forEach(d=>{const m=d.date.getMonth()+1; if(!ms.includes(m)) ms.push(m);});
+  const ref=refDate(); if(mcMonth==null||!ms.includes(mcMonth)) mcMonth=ms.includes(ref.getMonth()+1)?ref.getMonth()+1:ms[0];
+  const m=mcMonth, first=new Date(YEAR,m-1,1), nd=new Date(YEAR,m,0).getDate(), off=first.getDay();
+  const ab={m:'수',k:'국',e:'영',s:'사',l:'생',h:'한',r:'실',i:'면'};
+  let tot=0,dn=0; DAYS.forEach(d=>{if(d.date.getMonth()+1!==m) return; const e=EFF[d.key]||[]; tot+=e.length; dn+=e.filter(t=>S.done[t.id]).length;});
+  let h=`<div class="mcn">${ms.map(x=>`<button class="chip" data-a="mcm" data-v="${x}" aria-pressed="${x===m}">${x}월</button>`).join('')}</div>
+  <h2>${YEAR}년 ${m}월 계획표</h2><p class="note">달성 ${tot?Math.round(dn/tot*100):0}% · ${dn}/${tot} · 칸을 누르면 그날 시간표로 가요</p>
+  <div class="bar mcb"><i style="width:${tot?Math.round(dn/tot*100):0}%"></i></div>
+  <div class="mcal"><div class="mh sun">일</div><div class="mh">월</div><div class="mh">화</div><div class="mh">수</div><div class="mh">목</div><div class="mh">금</div><div class="mh sat">토</div>`;
+  for(let i=0;i<off;i++) h+=`<div class="mc emp"></div>`;
+  for(let d=1;d<=nd;d++){
+    const k=m+'/'+d, dow=(off+d-1)%7, day=DAYS.find(x=>x.key===k);
+    if(!day){h+=`<div class="mc out"><b class="dn">${d}</b></div>`; continue;}
+    const e=EFF[k]||[], dd=e.filter(t=>S.done[t.id]).length, p=e.length?Math.round(dd/e.length*100):0;
+    const g={}; e.forEach(t=>{const o=g[t.subj]=g[t.subj]||{t:0,d:0}; o.t++; if(S.done[t.id]) o.d++;});
+    const fl=FLAG[k]||(RESERVE.includes(k)?'예비':'');
+    h+=`<button class="mc ${isToday(k)?'today':''} ${e.length&&dd===e.length?'full':''} ${parseKey(k)<realToday()&&dd<e.length?'late':''}" data-a="go" data-v="${k}">
+      <span class="mt"><b class="dn ${dow===0?'sun':dow===6?'sat':''}">${d}</b><i>${e.length?p+'%':''}</i></span>
+      ${fl?`<small class="fl">${fl}</small>`:''}
+      <span class="ms">${Object.keys(g).map(s=>`<u class="${g[s].d===g[s].t?'ok':''}" style="--c:var(--c-${s})">${ab[s]} ${g[s].d}/${g[s].t}</u>`).join('')}</span>
+      ${e.length?`<span class="mp"><i style="width:${p}%"></i></span>`:''}</button>`;
+  }
+  h+=`</div><div class="mleg">${Object.keys(ab).map(s=>`<span style="--c:var(--c-${s})"><i></i>${SUBJ[s].n}</span>`).join('')}</div>`;
+  return h;
 }
 function viewProg(){
   const st={}; Object.keys(SUBJ).forEach(k=>st[k]={t:0,d:0});
@@ -1436,6 +1484,7 @@ document.addEventListener('click',e=>{
     case 'goRank': tab='rival'; rSub='rank'; render(); window.scrollTo(0,0); break;
     case 'startMatch': {const rs=rankState(); if(S.ex.match) break; if(rs.eligible) S.ex.match={type:'promo',from:rs.rk,start:todayKey()}; else if(atRisk()) S.ex.match={type:'defense',from:rs.rk,start:todayKey()}; save(); render(); break;}
     case 'psub': pSub=v; render(); window.scrollTo(0,0); break;
+    case 'mcm': mcMonth=+v; render(); break;
     case 'open': detail=v; range='1W'; tab='market'; mSub='market'; render(); window.scrollTo(0,0); break;
     case 'back': detail=null; render(); window.scrollTo(0,0); break;
     case 'mf': mf=v; render(); break;
@@ -1501,6 +1550,80 @@ document.addEventListener('input',e=>{
 });
 setInterval(()=>{if(T&&tab==='study'&&!fin) tickClock(); else if(tab==='rival'&&rSub==='duel'){const lv=document.getElementById('live'); if(lv) lv.innerHTML=vLive();}},1000);
 
+
+/* ============ 계획 v2 (10/7 15시 재편성): 밀린 분량을 10/14까지 몰아넣기 ============ */
+const PLAN2_END='10/14';
+function applyHide(){
+  if(!S.hide) return;
+  ALL=ALL.filter(t=>!S.hide[t.id]);
+  DAYS.forEach(d=>{d.tasks=d.tasks.filter(t=>!S.hide[t.id]);});
+}
+function planV2(){
+  if(S.plan2===1) return false;
+  const t0=realToday(), T7=parseKey('10/7'), E=parseKey(PLAN2_END);
+  if(t0<T7) return false;
+  S.hide=S.hide||{};
+  const od=ALL.filter(t=>!S.done[t.id]);
+  const isPast=t=>parseKey(t.orig)<t0;
+  // 지울 것: 사문 수특·통계게임(미완), 지난 날짜의 영단어 복습·실모·면접
+  od.forEach(t=>{
+    if(t.subj==='s'&&(t.text.startsWith('사문 수특')||t.text.startsWith('사문 통계'))) S.hide[t.id]=1;
+    else if(isPast(t)&&(t.text==='영단어 복습'||t.text.startsWith('실모 풀이')||t.subj==='i'||t.subj==='r')) S.hide[t.id]=1;
+  });
+  const days=DAYS.filter(d=>d.date>=t0&&d.date<=E).map(d=>d.key);
+  if(!days.length){S.plan2=1; return true;}
+  const first=t0.getTime()===T7.getTime();
+  const wk=k=>{const w=parseKey(k).getDay(); return w===0||w===6;};
+  const Q=od.filter(t=>!S.hide[t.id]);
+  const inRange=t=>parseKey(t.orig)<=E;
+  const ordr=(a,b)=>parseKey(a.orig)-parseKey(b.orig)||ALL.indexOf(a)-ALL.indexOf(b);
+  const W8=a=>{ // 날짜별 가중치를 days 길이에 맞춰 자름
+    const base=['10/7','10/8','10/9','10/10','10/11','10/12','10/13','10/14'];
+    return days.map(k=>a[base.indexOf(k)]||0);
+  };
+  const spread=(items,w)=>{ // items를 가중치대로 날짜 인덱스에 분배
+    const W=w.reduce((x,y)=>x+y,0), n=items.length, res=days.map(()=>[]);
+    if(!n) return res; if(!W){res[res.length-1]=items.slice(); return res;}
+    const cum=[]; w.reduce((a,x,i)=>(cum[i]=a+x),0);
+    items.forEach((it,i)=>{const pos=(i+.5)/n*W; let d=cum.findIndex(c=>pos<c); if(d<0) d=days.length-1; res[d].push(it);});
+    return res;
+  };
+  const put=(t,k,slot)=>{S.moved[t.id]=k; S.assign[t.id]=slot; delete S.moved['__']; };
+  const lanes=(k,a,todayL)=>(first&&k==='10/7'&&todayL)?todayL:a;
+  const dist=(items,w,laneFn)=>{
+    spread(items,w).forEach((arr,di)=>{const k=days[di], L=laneFn(k); arr.forEach((t,j)=>put(t,k,L[j%L.length]));});
+  };
+  const WK=['p9','p10','p11','p12'], WD=['p9','p10','p11','p12','p13'];
+  // 국어 (밀린 것만; 4주차 신규는 RAW에서 교시 고정)
+  dist(Q.filter(t=>t.subj==='k'&&!t.slot&&inRange(t)).sort(ordr),W8([5,6,6,5,5,6,6,6]),k=>wk(k)?WK:WD);
+  // 수학
+  dist(Q.filter(t=>t.subj==='m'&&!t.text.startsWith('실모')&&inRange(t)).sort(ordr),W8([2,4,4,4,4,4,4,4]),k=>lanes(k,['p5','p6','p7','p8'],['p7','p8']));
+  // 자이스토리 (중단 → 그불구 끝난 뒤 몰아서)
+  dist(Q.filter(t=>t.subj==='e'&&t.text.startsWith('자이스토리')&&inRange(t)).sort(ordr),W8([0,0,0,1,2,4,5,6]),k=>['p2','p6']);
+  // 사문 십지선다
+  dist(Q.filter(t=>t.subj==='s'&&inRange(t)).sort(ordr),W8([1,2,2,2,2,2,3,3]),k=>lanes(k,['p3'],['p11']));
+  // 생윤
+  dist(Q.filter(t=>t.subj==='l'&&inRange(t)).sort(ordr),W8([1,2,2,2,2,2,3,3]),k=>lanes(k,['p4'],['p12']));
+  // 한국사
+  dist(Q.filter(t=>t.subj==='h'&&inRange(t)).sort(ordr),W8([1,1,1,1,0,0,0,0]),k=>lanes(k,['p4'],['p13']));
+  // 그불구: 강의+과제 쌍
+  const g=Q.filter(t=>t.subj==='e'&&t.text.startsWith('그불구')).sort(ordr), byN={};
+  g.forEach(t=>{const n=(/그불구 (\d+)강/.exec(t.text)||[])[1]||'0'; (byN[n]=byN[n]||[]).push(t);});
+  const ns=Object.keys(byN).map(Number).sort((a,b)=>a-b);
+  const gd=ns.map(n=>byN[n]);
+  const PR=[['p1','p2'],['p3','p4'],['p5','p6']], PT=[['p7','p8']];
+  const gw=days.map((k,i)=>[1,2,3,3,3,1,0,0][['10/7','10/8','10/9','10/10','10/11','10/12','10/13','10/14'].indexOf(k)]||0);
+  spread(gd,gw).forEach((arr,di)=>{const k=days[di]; arr.forEach((grp,j)=>{const P=(first&&k==='10/7')?PT[0]:PR[j%PR.length];
+    grp.forEach(t=>{const hw=/과제/.test(t.text); put(t,k,hw?P[1]:P[0]);});});});
+  // 영단어: 밀린 곳부터 하루 3일차(1건)씩 순서대로
+  const vocab=ALL.filter(t=>!S.done[t.id]&&!S.hide[t.id]&&t.subj==='e'&&t.text.startsWith('영단어')&&t.text!=='영단어 복습').sort(ordr);
+  const vdays=DAYS.filter(d=>d.date>=t0).map(d=>d.key);
+  vocab.forEach((t,i)=>{const k=vdays[Math.min(i,vdays.length-1)]; put(t,k,(first&&k==='10/7')?'p7':'p1');});
+  S.plan2=1; return true;
+}
+
+applyHide();
+if(planV2()){applyHide(); save();}
 render();
 if(syncCode) kvPull(true).then(startRealtime);
 </script>
